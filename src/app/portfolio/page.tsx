@@ -171,10 +171,10 @@ export default function PortfolioPage() {
                       >
                         <Link href={`/portfolio/${item.id}`} className="group block h-full">
                           <div
-                            className={`portfolio-card relative rounded-sm overflow-hidden h-full ${
+                            className={`portfolio-card relative rounded-sm overflow-hidden h-full aspect-[4/3] ${
                               isFeatured
-                                ? "aspect-[4/3] md:aspect-auto md:h-full min-h-[300px]"
-                                : "aspect-[4/3]"
+                                ? "md:aspect-auto md:h-full md:min-h-[300px]"
+                                : ""
                             }`}
                           >
                             <Image
@@ -193,10 +193,10 @@ export default function PortfolioPage() {
                                 {item.year} · {item.location}
                               </span>
                               <h3
-                                className={`font-bold text-white mb-1 ${
+                                className={`font-bold text-white mb-1 text-base md:text-lg ${
                                   isFeatured
-                                    ? "text-xl md:text-2xl lg:text-3xl"
-                                    : "text-base md:text-lg"
+                                    ? "md:text-2xl lg:text-3xl"
+                                    : ""
                                 }`}
                               >
                                 {item.title}
