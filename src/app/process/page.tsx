@@ -187,7 +187,7 @@ export default function ProcessPage() {
           <div className="relative">
             {steps.map((step, i) => (
               <ScrollReveal key={step.step}>
-                <div className="relative flex gap-5 lg:gap-8 pb-14 lg:pb-20 last:pb-0">
+                <div className="relative flex gap-5 lg:gap-8 pb-20 lg:pb-28 last:pb-0">
                   {/* Timeline node (left column) */}
                   <div className="flex-shrink-0 flex flex-col items-center">
                     <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-gold text-white flex items-center justify-center text-lg lg:text-xl font-bold shadow-lg relative z-10">
