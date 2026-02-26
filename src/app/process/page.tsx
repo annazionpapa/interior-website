@@ -140,13 +140,11 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* Horizontal Step Overview Bar */}
-      <section className="bg-white border-b border-gray-100">
+      {/* Horizontal Step Overview Bar - desktop only */}
+      <section className="hidden md:block bg-white border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-6 py-8">
           <div className="flex items-start justify-between relative">
-            {/* Connecting line behind circles */}
             <div className="absolute top-5 left-[8%] right-[8%] h-px bg-gold/30" />
-
             {steps.map((step) => (
               <div
                 key={step.step}
@@ -155,10 +153,10 @@ export default function ProcessPage() {
                 <div className="w-10 h-10 rounded-full bg-gold text-white flex items-center justify-center font-bold text-sm shadow-md">
                   {step.step}
                 </div>
-                <span className="text-xs text-charcoal font-medium mt-2.5 text-center hidden sm:block">
+                <span className="text-xs text-charcoal font-medium mt-2.5 text-center">
                   {step.shortTitle}
                 </span>
-                <span className="text-[10px] text-gray-400 mt-0.5 hidden md:block">
+                <span className="text-[10px] text-gray-400 mt-0.5 hidden lg:block">
                   {step.duration}
                 </span>
               </div>
@@ -168,17 +166,17 @@ export default function ProcessPage() {
       </section>
 
       {/* Timeline Steps */}
-      <section className="py-16 lg:py-24 bg-ivory">
+      <section className="py-12 md:py-16 lg:py-24 bg-ivory">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal>
-            <div className="text-center mb-14">
+            <div className="text-center mb-10 md:mb-14">
               <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium">
                 5 Steps to Complete
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mt-2 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal mt-2 mb-3">
                 체계적인 5단계 프로세스
               </h2>
-              <p className="text-gray-400 max-w-md mx-auto">
+              <p className="text-gray-400 max-w-md mx-auto text-sm md:text-base">
                 모든 과정을 투명하게, 고객과 함께 진행합니다.
               </p>
             </div>
@@ -187,77 +185,153 @@ export default function ProcessPage() {
           <div className="relative">
             {steps.map((step, i) => (
               <ScrollReveal key={step.step}>
-                <div className="relative flex gap-5 lg:gap-8 pb-20 lg:pb-28 last:pb-0">
-                  {/* Timeline node (left column) */}
-                  <div className="flex-shrink-0 flex flex-col items-center">
-                    <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-gold text-white flex items-center justify-center text-lg lg:text-xl font-bold shadow-lg relative z-10">
-                      0{step.step}
+                {/* === MOBILE LAYOUT === */}
+                <div className="md:hidden pb-6 last:pb-0">
+                  <div className="bg-white rounded-sm shadow-sm overflow-hidden">
+                    <div className="p-5">
+                      {/* Mobile header: step badge + info */}
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="w-10 h-10 rounded-full bg-gold text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
+                          {step.step}
+                        </span>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-gold text-[11px] tracking-widest uppercase font-semibold">
+                              {step.subtitle}
+                            </span>
+                            <span className="px-2 py-0.5 bg-charcoal text-white text-[10px] font-medium rounded-sm">
+                              {step.duration}
+                            </span>
+                          </div>
+                          <h3 className="text-lg font-bold text-charcoal leading-tight">
+                            {step.title}
+                          </h3>
+                        </div>
+                      </div>
+
+                      <p className="text-gray-500 leading-relaxed text-sm mb-3">
+                        {step.description}
+                      </p>
+
+                      {/* Checklist - single column on mobile */}
+                      <div className="space-y-1.5">
+                        {step.details.map((detail) => (
+                          <div
+                            key={detail}
+                            className="flex items-center gap-2"
+                          >
+                            <svg
+                              className="w-3.5 h-3.5 text-gold flex-shrink-0"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M5 13l4 4L19 7"
+                              />
+                            </svg>
+                            <span className="text-sm text-charcoal">
+                              {detail}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    {/* Vertical connecting line */}
-                    {i < steps.length - 1 && (
-                      <div className="w-px flex-1 bg-gold/20 mt-3" />
-                    )}
                   </div>
 
-                  {/* Step card (right column) */}
-                  <div className="flex-1 bg-white rounded-sm shadow-sm overflow-hidden mt-1">
-                    <div className="p-5 lg:p-7">
-                      {/* Card header */}
-                      <div className="flex flex-wrap items-center gap-3 mb-2">
-                        <span className="text-gold text-xs tracking-widest uppercase font-semibold">
-                          {step.subtitle}
-                        </span>
-                        <span className="px-3 py-1 bg-charcoal text-white text-xs font-medium rounded-sm">
-                          {step.duration}
-                        </span>
+                  {/* Mobile connector arrow */}
+                  {i < steps.length - 1 && (
+                    <div className="flex justify-center py-3">
+                      <svg
+                        className="w-5 h-5 text-gold/40"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+
+                {/* === DESKTOP LAYOUT === */}
+                <div className="hidden md:block pb-20 lg:pb-28 last:pb-0">
+                  <div className="relative flex gap-8">
+                    {/* Timeline node */}
+                    <div className="flex-shrink-0 flex flex-col items-center">
+                      <div className="w-16 h-16 rounded-full bg-gold text-white flex items-center justify-center text-xl font-bold shadow-lg relative z-10">
+                        0{step.step}
                       </div>
-                      <h3 className="text-xl lg:text-2xl font-bold text-charcoal mb-3">
-                        {step.title}
-                      </h3>
+                      {i < steps.length - 1 && (
+                        <div className="w-px flex-1 bg-gold/20 mt-3" />
+                      )}
+                    </div>
 
-                      {/* Content: text + thumbnail image */}
-                      <div className="grid grid-cols-1 md:grid-cols-[1fr_180px] gap-5">
-                        <div>
-                          <p className="text-gray-500 leading-relaxed mb-4 text-sm lg:text-base">
-                            {step.description}
-                          </p>
-                          {/* Detail checklist */}
-                          <div className="grid grid-cols-2 gap-2">
-                            {step.details.map((detail) => (
-                              <div
-                                key={detail}
-                                className="flex items-center gap-2"
-                              >
-                                <svg
-                                  className="w-4 h-4 text-gold flex-shrink-0"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M5 13l4 4L19 7"
-                                  />
-                                </svg>
-                                <span className="text-sm text-charcoal">
-                                  {detail}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
+                    {/* Step card */}
+                    <div className="flex-1 bg-white rounded-sm shadow-sm overflow-hidden mt-1">
+                      <div className="p-7">
+                        <div className="flex flex-wrap items-center gap-3 mb-2">
+                          <span className="text-gold text-xs tracking-widest uppercase font-semibold">
+                            {step.subtitle}
+                          </span>
+                          <span className="px-3 py-1 bg-charcoal text-white text-xs font-medium rounded-sm">
+                            {step.duration}
+                          </span>
                         </div>
+                        <h3 className="text-xl lg:text-2xl font-bold text-charcoal mb-3">
+                          {step.title}
+                        </h3>
 
-                        {/* Thumbnail image */}
-                        <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[140px] rounded-sm overflow-hidden">
-                          <Image
-                            src={step.image}
-                            alt={step.title}
-                            fill
-                            className="object-cover"
-                            sizes="200px"
-                          />
+                        <div className="grid grid-cols-[1fr_180px] gap-5">
+                          <div>
+                            <p className="text-gray-500 leading-relaxed mb-4 text-sm lg:text-base">
+                              {step.description}
+                            </p>
+                            <div className="grid grid-cols-2 gap-2">
+                              {step.details.map((detail) => (
+                                <div
+                                  key={detail}
+                                  className="flex items-center gap-2"
+                                >
+                                  <svg
+                                    className="w-4 h-4 text-gold flex-shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={2}
+                                      d="M5 13l4 4L19 7"
+                                    />
+                                  </svg>
+                                  <span className="text-sm text-charcoal">
+                                    {detail}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Thumbnail image - desktop only */}
+                          <div className="relative min-h-[140px] rounded-sm overflow-hidden">
+                            <Image
+                              src={step.image}
+                              alt={step.title}
+                              fill
+                              className="object-cover"
+                              sizes="200px"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -270,26 +344,26 @@ export default function ProcessPage() {
       </section>
 
       {/* Promise */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal>
-            <div className="text-center mb-12">
+            <div className="text-center mb-10 md:mb-12">
               <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium">
                 Our Promise
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mt-2">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal mt-2">
                 루미에르의 약속
               </h2>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             {promises.map((item, i) => (
               <ScrollReveal key={item.title} delay={i + 1}>
-                <div className="bg-ivory rounded-sm p-7 text-center h-full">
-                  <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-ivory rounded-sm p-6 md:p-7 text-center h-full">
+                  <div className="w-11 h-11 md:w-12 md:h-12 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
                     <svg
-                      className="w-6 h-6 text-gold"
+                      className="w-5 h-5 md:w-6 md:h-6 text-gold"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -302,7 +376,7 @@ export default function ProcessPage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="font-bold text-charcoal text-lg mb-2">
+                  <h3 className="font-bold text-charcoal text-base md:text-lg mb-1.5 md:mb-2">
                     {item.title}
                   </h3>
                   <p className="text-sm text-gray-500 leading-relaxed">
@@ -316,7 +390,7 @@ export default function ProcessPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-20">
+      <section className="relative py-16 md:py-20">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=80"
@@ -328,10 +402,10 @@ export default function ProcessPage() {
         </div>
         <div className="relative max-w-3xl mx-auto px-4 text-center">
           <ScrollReveal>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               지금 시작하면 어떤 일정으로 진행될까요?
             </h2>
-            <p className="text-gray-300 mb-8 max-w-md mx-auto">
+            <p className="text-gray-300 mb-8 max-w-md mx-auto text-sm md:text-base">
               무료 상담을 통해 맞춤 일정을 확인해 보세요.
             </p>
             <Link
