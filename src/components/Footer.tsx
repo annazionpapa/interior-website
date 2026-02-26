@@ -3,27 +3,6 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-charcoal text-white">
-      {/* CTA Banner */}
-      <div className="bg-charcoal-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <p className="text-taupe-light text-sm tracking-widest uppercase mb-3">
-            Free Consultation
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            아직 고민 중이신가요?
-          </h2>
-          <p className="text-gray-400 mb-8 max-w-md mx-auto">
-            부담 없이 물어보세요. 상담은 무료입니다.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-gold text-white px-8 py-4 text-base font-semibold hover:bg-gold-dark transition-colors rounded-sm"
-          >
-            무료 상담 신청하기
-          </Link>
-        </div>
-      </div>
-
       {/* Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
