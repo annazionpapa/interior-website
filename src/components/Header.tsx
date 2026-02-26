@@ -10,7 +10,6 @@ const navItems = [
   { href: "/services", label: "서비스" },
   { href: "/process", label: "시공 프로세스" },
   { href: "/about", label: "회사 소개" },
-  { href: "/contact", label: "상담 신청" },
 ];
 
 export default function Header() {
