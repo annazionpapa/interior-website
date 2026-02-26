@@ -58,7 +58,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1637684666772-1f215bfd0f5d?w=800&q=80"
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
                   alt="대표이사"
                   fill
                   className="object-cover"
