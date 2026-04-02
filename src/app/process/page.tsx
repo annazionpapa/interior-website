@@ -263,7 +263,7 @@ export default function ProcessPage() {
                 </div>
 
                 {/* === DESKTOP LAYOUT === */}
-                <div className="hidden md:block pb-20 lg:pb-28 last:pb-0">
+                <div className="hidden md:block pb-28 lg:pb-36 last:pb-0">
                   <div className="relative flex gap-8">
                     {/* Timeline node */}
                     <div className="flex-shrink-0 flex flex-col items-center">

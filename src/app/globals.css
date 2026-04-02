@@ -112,6 +112,35 @@ html {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Mobile typography - minimum 16px for readability */
+@media (max-width: 639px) {
+  .text-xs,
+  .text-sm,
+  .text-\[10px\],
+  .text-\[11px\],
+  .text-\[15px\] {
+    font-size: 1rem; /* 16px - minimum */
+  }
+  .text-lg {
+    font-size: 1.25rem; /* 20px, from 18px */
+  }
+  .text-xl {
+    font-size: 1.375rem; /* 22px, from 20px */
+  }
+  .text-2xl {
+    font-size: 1.625rem; /* 26px, from 24px */
+  }
+  .text-3xl {
+    font-size: 2rem; /* 32px, from 30px */
+  }
+  .text-4xl {
+    font-size: 2.375rem; /* 38px, from 36px */
+  }
+  .text-5xl {
+    font-size: 3.125rem; /* 50px, from 48px */
+  }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
